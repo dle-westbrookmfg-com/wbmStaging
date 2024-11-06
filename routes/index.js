@@ -60,9 +60,9 @@ let buffer;
 const emailFrom = "webrequest@westbrookmfg.com";
 const emailProdPass = process.env.EMAIL_APP_PASS;
 
-const emailToProspects = "webrequest@westbrookmfg.com";
-const emailDevTo = "danle2072@gmail.com";
-const emailCCTo = "dle@westbrookmfg.com";
+const emailBCC = "webrequest@westbrookmfg.com";
+const emailDevTo = "dev@westbrookmfg.com";
+
 
 // const emailFrom = "westbrook.group@scriptstone.com";
 // const emailProdPass = process.env.EMAIL_APP_PASS;
@@ -157,7 +157,7 @@ router.post('/home-contact-form-submit', function(req, res) {
   let mailForCompany = {
     from: emailFrom,
     to: env === 'production' ? [emailTo] : emailDevTo,
-    bcc: emailToProspects,
+    bcc: emailBCC,
     subject: 'Westbrook Manufacturing Home Contact Form',
     html: emailText
   };
@@ -189,7 +189,7 @@ router.post('/main-contact-form-submit', function(req, res) {
   let mailForCompany = {
     from: emailFrom,
     to: env === 'production' ? [emailTo] : emailDevTo,
-    bcc: emailToProspects,
+    bcc: emailBCC,
     subject: 'Westbrook Manufacturing Main Contact Form',
     html: emailText
   };
@@ -224,7 +224,7 @@ router.post('/quote-contact-form-submit', (req, res) => {
   let mailForCompany = {
     from: emailFrom,
     to: env === 'production' ? [emailTo] : emailDevTo,
-    bcc: emailToProspects,
+    bcc: emailBCC,
     subject: 'Westbrook Manufacturing Quote Request Form',
     html: emailText,
     attachments: file
@@ -257,7 +257,7 @@ router.post('/product-form-submit', function(req, res) {
   let mailOptions = {
     from: emailFrom,
     to: env === 'production' ? [emailTo] : emailDevTo,
-    bcc: emailToProspects,
+    bcc: emailBCC,
     subject: 'Westbrook Manufacturing Product Form',
     html: emailText
   };
