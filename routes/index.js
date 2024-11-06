@@ -56,10 +56,19 @@ let buffer;
 
 
 // --- Forms
-const emailFrom = "westbrook.group@scriptstone.com";
+
+const emailFrom = "webrequest@westbrookmfg.com";
 const emailProdPass = process.env.EMAIL_APP_PASS;
-const emailDevTo = "devs@lapraim.com";
-const emailToProspects = "prospects@scriptstone.com";
+
+const emailToProspects = "webrequest@westbrookmfg.com";
+const emailDevTo = "danle2072@gmail.com";
+const emailCCTo = "dle@westbrookmfg.com";
+
+// const emailFrom = "westbrook.group@scriptstone.com";
+// const emailProdPass = process.env.EMAIL_APP_PASS;
+// const emailDevTo = "devs@lapraim.com";
+// const emailToProspects = "prospects@scriptstone.com";
+
 // const emailDevPass = process.env.EMAIL_dev_PASS;
 // const emailPrevFrom = "manufacturingwestbrook@gmail.com";
 // const emailProdFrom = "westbrookmfg@outlook.com";
@@ -93,10 +102,10 @@ async function sendMail(mailForCompany, mailForConfirm, res) {
     const transport = nodemailer.createTransport({
       pool: true,
       maxConnections: 5,
-      service: 'gmail',
+      service: 'SendGrid',
       auth: {
-        user: emailFrom,
-        pass: emailProdPass,
+        user: 'apikey',
+        pass: process.env.SENDGRID_API_KEY,
       },
     });
 
